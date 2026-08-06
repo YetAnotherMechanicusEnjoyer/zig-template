@@ -1,0 +1,13 @@
+.{
+    .name = .your_project_name,
+    .fingerprint = 0x000,
+    .version = "0.1.0",
+    .dependencies = .{
+        // TODO: zig fetch --save git+https://github.com/YetAnotherMechanicusEnjoyer/libstring
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
