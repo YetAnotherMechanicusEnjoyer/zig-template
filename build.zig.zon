@@ -6,6 +6,8 @@
         // TODO: zig fetch --save git+https://github.com/YetAnotherMechanicusEnjoyer/libstring
     },
     .paths = .{
+        "README.md",
+        "LICENSE",
         "build.zig",
         "build.zig.zon",
         "src",
