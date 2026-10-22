@@ -6,19 +6,20 @@ pub fn build(b: *std.Build) void {
     const test_step = b.step("test", "Run tests");
     const docs_step = b.step("docs", "Generate documentation");
 
+    const libstring = b.dependency("string", .{ .target = target, .optimize = optimize });
+
     const module = b.createModule(.{
         .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
     });
 
-    if (optimize != .Debug) {
+    if (optimize != .debug) {
         module.strip = true;
         module.error_tracing = false;
         module.omit_frame_pointer = true;
     }
 
-    const libstring = b.dependency("string", .{ .target = target, .optimize = optimize });
     module.addImport("string", libstring.module("string"));
 
     const exe = b.addExecutable(.{
